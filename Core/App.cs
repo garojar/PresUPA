@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Core.Controllers;
 using Core.Models;
+using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
 
 namespace Core
 {
@@ -30,12 +31,22 @@ namespace Core
                     Materno = "Astorga",
                     Email = "durrutia@ucn.cl"
                 };
+                
+                Persona persona2 = new Persona()
+                {
+                    Rut = "130144918",
+                    Nombre = "KANAMINCHO",
+                    Paterno = "TONO",
+                    Materno = "TONO",
+                    Email = "durrutia@ucn.cl"
+                };
 
                 Console.WriteLine(persona);
                 Console.WriteLine(Utils.ToJson(persona));
 
                 // Save in the repository
                 sistema.Save(persona);
+                sistema.Save(persona2);
             }
 
             Console.WriteLine("Finding personas ..");
@@ -51,5 +62,6 @@ namespace Core
 
             Console.WriteLine("Done.");
         }
+
     }
 }
